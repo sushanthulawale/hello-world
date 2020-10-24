@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatedemoComponent implements OnInit {
   today;
-  
+    
   constructor() {
     this.showdate();
   }
@@ -16,6 +16,7 @@ export class DatedemoComponent implements OnInit {
     this.today = new Date();
     return this.today;
   }
+  
   ngOnInit(): void {
    
   }
