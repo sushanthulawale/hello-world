@@ -1,0 +1,16 @@
+<h1>Home Page of Archives</h1>
+<ul>
+  <li *ngFor="let archive of archives">
+    <a [routerLink]="['/archive', archive.year,archive.month]">
+      {{archive.year+'/'+archive.month}}</a>
+  </li>
+</ul>
+<!-- <h1>Home Page</h1>
+<p *ngIf="authService.isLoggedIn()">
+  Welcome {{ authService.currentUser.name }}
+</p>
+<ul>
+  <li *ngIf="authService.isLoggedIn()"><a routerLink="/admin">Admin</a></li>
+  <li><a routerLink="/login">Login</a></li>
+  <li *ngIf="authService.isLoggedIn()"><a (click)="authService.logout()">Logout</a></li>
+</ul> -->

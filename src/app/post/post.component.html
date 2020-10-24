@@ -1,0 +1,20 @@
+<input 
+(keyup.enter)="createPost(title)" 
+#title type="text" class="form-group">  
+<ul class="list-group">
+    <li *ngFor="let post of posts"
+        class="list-group-item">
+        <button 
+        (click)="updatePost(post)" 
+        class="btn btn-outline-primary btn-sm">
+        Update</button>&nbsp;&nbsp;
+        <!-- <button 
+        (click)="deletePost(post)" 
+        class="btn btn-outline-danger btn-sm">
+        Delete</button>&nbsp;&nbsp;&nbsp;&nbsp; -->
+        {{post.title}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="deletePost(post)">
+            <span aria-hidden="true" style="font-size:20px">×</span>
+        </button>
+    </li>
+</ul>
