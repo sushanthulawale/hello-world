@@ -18,12 +18,12 @@ export class DataService {
   constructor(@Inject(String) private url, private http: Http) {    //url passed from github-followers.service.ts
    }
 
-   getAll(){
+   getAll(){     //get all data
     return this.http.get(this.url)//.map(response => response.json())
     .pipe(map(response => response.json()), catchError(this.handleError));
    }
 
-   getRecords(){
+   getRecords(){     //get records
      return this.http.get(this.url).subscribe((data) => {
        this.arraydata = data.json()
        //Array.from(Object.keys(data), 
@@ -34,31 +34,31 @@ export class DataService {
     });
    }
 
-    getPics(){
+    getPics(){    //get photos
       return this.http.get(this.picsurl).subscribe((datas) => {
         this.arrdata = datas.json();
         console.log(this.arrdata);
     });
    } 
 
-   create(resource){
+   create(resource){    //Insert
    // return Observable.throw(new AppError());   
      return this.http.post(this.url, JSON.stringify(resource))
      .pipe(map(response => response.json()),catchError(this.handleError));
    }
 
-   update(resource){
+   update(resource){     //Upadate
      return this.http.patch(this.url + '/' + resource.id, JSON.stringify({isRead: true}))
      .pipe(map(response => response.json()),catchError(this.handleError));
    }
 
-   delete(id){
+   delete(id){     //Delete
     //  return Observable.throw(new AppError());
     return this.http.delete(this.url + '/' + id)
     .pipe(map(response => response.json()),catchError(this.handleError));    
    }
     
-   private handleError(error : Response)
+   private handleError(error : Response)    //Error Handler class
    {
      if(error.status===400)
         return Observable.throw(new BadInput(error.json()));
