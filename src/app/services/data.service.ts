@@ -47,7 +47,7 @@ export class DataService {
      .pipe(map(response => response.json()),catchError(this.handleError));
    }
 
-   update(resource){     //Upadate
+   update(resource){     //Update
      return this.http.patch(this.url + '/' + resource.id, JSON.stringify({isRead: true}))
      .pipe(map(response => response.json()),catchError(this.handleError));
    }
@@ -58,7 +58,7 @@ export class DataService {
     .pipe(map(response => response.json()),catchError(this.handleError));    
    }
     
-   private handleError(error : Response)    //Error Handler class
+   private handleError(error : Response)    //Error handler class
    {
      if(error.status===400)
         return Observable.throw(new BadInput(error.json()));
