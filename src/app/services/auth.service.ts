@@ -17,7 +17,7 @@ export class AuthService {
     }
   }
 
-  login(credentials) { 
+  login(credentials) {     //LogIn
    return this.http.post('/api/authenticate', JSON.stringify(credentials))
     .pipe(map(response => {
       let result = response.json();
@@ -34,12 +34,12 @@ export class AuthService {
     }));
   }
 
-  logout() { 
+  logout() {    //Logout
     localStorage.removeItem('token');
     this.currentUser = null;
   }
 
-  isLoggedIn() { 
+  isLoggedIn() {     //Check login or not
     return this.jwt.isTokenExpired('token');
   }
 }
