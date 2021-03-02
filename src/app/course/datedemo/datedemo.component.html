@@ -12,6 +12,11 @@
             </li>
         </ul> 
     </nav>
+    <div>
+        <label for="weather">Enter weather in celsius: </label>
+        <input type="text" (keyup.enter)="convertTemp()" [appInputFormat]="'uppercase'" [(ngModel)]="degree"> degrees celsius
+      
+    </div>
 
     <p>Today is : <b>{{today | date: 'dd/MM/yyyy' }}</b></p>
     <b>{{today | date:'d-M-y'}}</b>
